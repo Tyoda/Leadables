@@ -11,6 +11,7 @@ This mod was inspired by <a href="https://forum.wurmonline.com/index.php?/topic/
  
 ## How to
 Just uncomment the lines with the creatures whose leadabilty you want to change and set it to true/false!
+
 If you want to set all guards to be leadable, your .properties file should look like this:
 ```properties
 ...
