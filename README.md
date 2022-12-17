@@ -7,7 +7,7 @@ This mod was inspired by <a href="https://forum.wurmonline.com/index.php?/topic/
  - Make guards leadable, have your personal army!
  - Make Bartender leadable! Following Free Food!
  - Make dragons leadable! Well...actually...they'd follow you home anyway...
- 
+ - Make any modded creature leadable!
  
 ## How to
 Just uncomment the lines with the creatures whose leadabilty you want to change and set it to true/false!
