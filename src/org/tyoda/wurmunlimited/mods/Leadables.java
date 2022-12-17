@@ -1,4 +1,4 @@
-package org.tyoda.wurmunlimited.mods;
+package org.tyoda.wurm.Leadables;
 
 import com.wurmonline.server.creatures.CreatureTemplate;
 import com.wurmonline.server.creatures.CreatureTemplateFactory;
@@ -19,15 +19,6 @@ public class Leadables implements WurmServerMod, ServerStartedListener, Configur
     private final HashMap<String, Boolean> customLeadables = new HashMap<>();
 
     @Override
-    public void onServerStarted() {
-        for(String custom : customLeadables.keySet()){
-            logger.info("Setting isLeadable for "+custom+": "+customLeadables.get(custom));
-            setLeadable(getId(custom), customLeadables.get(custom));
-        }
-        customLeadables.clear();
-    }
-
-    @Override
     public void configure(Properties p) {
         Enumeration<?> names = p.propertyNames();
         while(names.hasMoreElements()){
@@ -37,6 +28,15 @@ public class Leadables implements WurmServerMod, ServerStartedListener, Configur
                 customLeadables.put(next, isLeadable);
             }
         }
+    }
+
+    @Override
+    public void onServerStarted() {
+        for(String custom : customLeadables.keySet()){
+            logger.info("Setting isLeadable for "+custom+": "+customLeadables.get(custom));
+            setLeadable(getId(custom), customLeadables.get(custom));
+        }
+        customLeadables.clear();
     }
 
     private static void setLeadable(int id, boolean isCustomLeadable){
