@@ -1,4 +1,4 @@
-package org.tyoda.wurm.Leadables;
+package org.tyoda.wurm;
 
 import com.wurmonline.server.creatures.CreatureTemplate;
 import com.wurmonline.server.creatures.CreatureTemplateFactory;
@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 
 public class Leadables implements WurmServerMod, ServerStartedListener, Configurable {
     public static final Logger logger = Logger.getLogger(Leadables.class.getName());
-    public static final String version = "v1.0";
+    public static final String version = "v1.1";
     private final HashMap<String, Boolean> customLeadables = new HashMap<>();
 
     @Override
@@ -49,6 +49,9 @@ public class Leadables implements WurmServerMod, ServerStartedListener, Configur
     }
 
     private static int getId(String leadString){
+        if(leadString.startsWith("leadCustom")){
+            return Integer.parseInt(leadString.substring(10));
+        }
         switch(leadString){
             case "leadHuman":
                 return 1;
